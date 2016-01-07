@@ -1,0 +1,24 @@
+<head>
+  <meta charset="UTF-8">
+  <title>チャットしようぜ！</title>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "chat" %>
+</head>
+<body>
+  <h1>Chat Sample</h1>
+  <div>ようこそ、<%= @current_user.user_name %>さん</div>
+
+  <div id='username', style='display:none'><%= @current_user.user_name %></div>
+
+  <div id='timeline' style='margin:20px'>
+    <div id='chat' data-uri="<%= request.host %>:3001/websocket"></div>
+  </div>
+
+  <hr/>
+  <div>
+    <form class='form-horizontal'>
+      <input type='text' class='form-control' id='msgbody' />
+      <input type='button' class='btn btn-primary' id='send' value='送信' />
+    </form>
+  </div>
+</body>
